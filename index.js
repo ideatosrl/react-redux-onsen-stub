@@ -2,11 +2,13 @@ import React from 'react';
 import {render} from 'react-dom';
 
 import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import createLogger from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
 import {AppContainer} from 'react-hot-loader';
 
 import reducers from './src/reducers';
+import sagas from './src/sagas';
 import App from './src/container/App';
 
 import ons from 'onsenui';
@@ -16,11 +18,16 @@ import './stylus/index.styl';
 import './fonts/index.css';
 
 const logger = createLogger();
+const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(reducers,
-  window.devToolsExtension ? window.devToolsExtension() : f => f,
-  applyMiddleware(logger)
-);
+compose(
+  applyMiddleware(sagaMiddleware),
+  applyMiddleware(logger),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+));
+
+sagaMiddleware.run(sagas);
 
 const rootElement = document.getElementById('root');
 

@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import dummy from './dummy';
+import exers from './exers';
 
 const todoApp = combineReducers({
-  dummy
+  exers
 });
 
 export default todoApp;

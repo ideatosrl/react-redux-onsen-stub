@@ -1,31 +1,18 @@
 import React from 'react';
-import exers from '../model/exers';
+import {connect} from 'react-redux';
+import * as actions from '../actions/index';
+import DetailPage from './Detail';
 
 import {
     Page,
     Toolbar,
-    Button,
     List,
     ListItem
 } from 'react-onsenui';
 
-import DetailPage from './Detail';
-
-export default class ListPage extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      list: []
-    };
-  }
-
+class ListPage extends React.Component {
   componentDidMount() {
-    exers.list().then(exers => {
-      this.setState({
-        list: exers
-      });
-    });
+    this.props.dispatch(actions.requestExers());
   }
 
   toDetail(exer) {
@@ -61,10 +48,11 @@ export default class ListPage extends React.Component {
     return (
         <Page renderToolbar={() => toolbar}>
             <List
-                dataSource={this.state.list}
+                dataSource={this.props.exers}
                 renderRow={(exer, index) => this.renderRow(exer, index)} />
-            <Button onClick={() => this.toDetail()}>To Detail {this.state.list.length}</Button>
         </Page>
     );
   }
 }
+
+export default connect(state => state.exers)(ListPage);

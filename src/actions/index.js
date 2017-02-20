@@ -1,12 +1,13 @@
 export const ACTION_TYPES = {
-  DUMMY_ON: 'DUMMY_ON',
-  DUMMY_OFF: 'DUMMY_OFF'
+  REQUEST_EXERS: 'REQUEST_EXERS',
+  REQUEST_EXERS_SUCCESS: 'REQUEST_EXERS_SUCCESS'
 };
 
-export const DUMMY_ON = () => ({
-  type: ACTION_TYPES.DUMMY_ON
+export const requestExers = () => ({
+  type: ACTION_TYPES.REQUEST_EXERS
 });
 
-export const DUMMY_OFF = () => ({
-  type: ACTION_TYPES.DUMMY_OFF
+export const requestExersSuccess = (exers) => ({
+  type: ACTION_TYPES.REQUEST_EXERS_SUCCESS,
+  payload: exers
 });

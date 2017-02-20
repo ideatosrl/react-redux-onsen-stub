@@ -39,3 +39,4 @@ plugins
 # App files
 www/*
 !www/index.html
+.vscode

@@ -6,9 +6,12 @@ import {
 
 import List from '../pages/List';
 
-const renderPage = (route, navigator) => (
-  <route.component key={route.key} navigator={navigator} {...route.props} />
-);
+const renderPage = (route, navigator) => {
+  window.location.hash = route.key;
+  return (
+    <route.component key={route.key} navigator={navigator} {...route.props} />
+  );
+};
 
 const App = () => (
   <Navigator

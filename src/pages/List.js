@@ -6,19 +6,24 @@ import {
   Button
 } from 'react-onsenui';
 
+import Detail from './Detail';
+
 export default class List extends React.Component {
 
   toDetail() {
     this.props.navigator.pushPage({
-      component: List,
-      key: 'LIST'
+      component: Detail,
+      key: 'Detail',
+      props: {
+        openTime: (new Date()).getTime()
+      }
     });
   }
 
   render() {
     const toolbar = (
       <Toolbar>
-        <div className='center'>Home</div>
+        <div className='center'>List</div>
       </Toolbar>
     );
 

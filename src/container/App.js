@@ -4,7 +4,7 @@ import {
   Navigator
 } from 'react-onsenui';
 
-import List from '../pages/List';
+import ListPage from '../pages/List';
 
 const renderPage = (route, navigator) => {
   window.location.hash = route.key;
@@ -16,7 +16,7 @@ const renderPage = (route, navigator) => {
 const App = () => (
   <Navigator
     renderPage={renderPage}
-    initialRoute={{component: List, key: 'List'}}
+    initialRoute={{component: ListPage, key: 'List'}}
   />
 );
 

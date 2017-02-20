@@ -4,16 +4,16 @@ import {
   Navigator
 } from 'react-onsenui';
 
-import MainPage from './MainPage';
+import List from '../pages/List';
 
 const renderPage = (route, navigator) => (
-  <route.component key={route.key} navigator={navigator} />
+  <route.component key={route.key} navigator={navigator} {...route.props} />
 );
 
 const App = () => (
   <Navigator
     renderPage={renderPage}
-    initialRoute={{component: MainPage, key: 'MAIN_PAGE'}}
+    initialRoute={{component: List, key: 'List'}}
   />
 );
 

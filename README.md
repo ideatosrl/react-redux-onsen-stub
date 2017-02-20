@@ -1,6 +1,6 @@
 # React / Redux / OnsenUI / Stub
 
-Requisiti
+Requirements
 =
 - nvm
 - android sdk 
@@ -8,33 +8,31 @@ Requisiti
 - java 1.8.x
 
 
-Step comuni per Build
+Setup
 =
-- ```nvm use``` 
-- controllare se la versione di node 6.9.4 è installata
-- se non è installa ```nvm install 6.9.4```
+- ```nvm use``` or ```nvm install```
 - ```npm i```
 - ```npm run prepare```
 
-Build Web
+Web
 =
-- Per far girare l'app sul browser (http://0.0.0.0:9000/webpack-dev-server/) ```npm start```
+- to try the application in your browser just type ```npm start``` and go to (http://0.0.0.0:9000/webpack-dev-server/). You need to disable CORS in order to receive data
 
-Build mobile
+Mobile
 =
-- Per lanciare l'app su dispositivo/emulatore android ```npm run android```
-- Per lanciare l'app su dispositivo/simulatore ios ```npm run ios```
-- Build android ```npm run build-android```
-- Build ios ```npm run build-ios```
+- To launch the app on android device/emulator ```npm run android```
+- To launch the app on ios device/emulator ```npm run ios```
+- Android build ```npm run build-android```
+- Ios Build ```npm run build-ios```
 
 Eslint
 =
 
-Per installare l'hook di pre-commit per eslint digitare nella root del progetto. Se si utilizza questo hook i commit vanno *sempre* fatti dalla root del progetto
+To use the lining pre-commit hook, just type
 
     cp scripts/pre-commit.sh .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
 
 Testing
 =
-- Per lanciare i test ```npm test```
-- Per lanciare i test con il watch ```npm test -- --watch```
+- To launch tests ```npm test```
+- To launch tests in watch mode ```npm test -- --watch```

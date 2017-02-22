@@ -16,10 +16,6 @@ const center_style = {
 
 export default class DetailPage extends React.Component {
 
-  goBack() {
-    this.props.navigator.popPage();
-  }
-
   render() {
     const toolbar = (
         <Toolbar>
@@ -38,7 +34,7 @@ export default class DetailPage extends React.Component {
                 <Col>
                     <div style={{padding: '20px', ...center_style}}>
                         <h2 style={{textAlign: 'center'}}>coding to {this.props.exer.field_coding_to}</h2>
-                        <Button modifier='large' onClick={() => this.goBack()}>Go Back</Button>
+                        <Button modifier='large' onClick={() => this.props.goBack()}>Go Back</Button>
                     </div>
                 </Col>
             </Row>

@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/index';
 import DetailPage from './Detail';
+import navigationActions from '../navigation/navigation.actions';
 
 import {
     Page,
@@ -16,13 +17,14 @@ class ListPage extends React.Component {
   }
 
   toDetail(exer) {
-    this.props.navigator.pushPage({
+    this.props.dispatch(navigationActions.pushPage({
       component: DetailPage,
       key: 'Detail',
       props: {
-        exer
+        exer,
+        goBack: () => this.props.dispatch(navigationActions.popPage())
       }
-    });
+    }));
   }
 
   renderRow(exer, index) {

@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 
 import reducers from '../reducers';
 import sagas from '../sagas';
+import navigationSagas from '../navigation/navigation.sagas';
 
 export default () => {
   const logger = createLogger({
@@ -19,6 +20,7 @@ compose(
 ));
 
   sagaMiddleware.run(sagas);
+  sagaMiddleware.run(navigationSagas.getSagas());
 
   return store;
 };

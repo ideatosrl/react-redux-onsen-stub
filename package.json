@@ -2,6 +2,9 @@
   "name": "react-redux-onsen-stub",
   "version": "0.0.1",
   "main": "index.js",
+  "jest": {
+    "setupTestFrameworkScriptFile": "./jest.js"
+  },
   "scripts": {
     "start": "webpack-dev-server --host 0.0.0.0 --progress --content-base www/",
     "prebuild": "npm run lint && npm run clear && npm test",
